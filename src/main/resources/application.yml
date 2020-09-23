@@ -1,7 +1,10 @@
 # Global properties go here
 spring:
-   profiles:
-      active: test
+   data:
+      mongodb:
+         uri: mongodb://localhost:27017/stock_price_data
+#   profiles:
+#      active: test
    main:
       allow-bean-definition-overriding: true
    datasource:
@@ -11,10 +14,10 @@ spring:
       # http://www.h2database.com/html/tutorial.html#using_server
       url: jdbc:h2:mem:testtest
       driver-class-name: org.h2.Driver
-   jpa:
-      hibernate:
-         ddl-auto: update
-      database-platform: org.hibernate.dialect.MySQL5Dialect
+#   jpa:
+#      hibernate:
+#         ddl-auto: update
+#      database-platform: org.hibernate.dialect.MySQL5Dialect
 
 mvc:
    settleMissionPath: /settlementEngine
@@ -71,4 +74,9 @@ spring:
 ---
 # Mappings for Rest Controllers
 webservice:
-  halpath: /hal
+   halpath: /hal #webservice.halpath
+   quotepath: /prices #webservice.quotepath
+
+# Hide API keys
+api:
+   alphavantage: TAO2NOU4US1AHXQX

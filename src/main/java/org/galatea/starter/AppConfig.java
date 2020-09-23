@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.web.client.RestTemplate;
 
 @Slf4j
 @Configuration
@@ -74,6 +75,16 @@ public class AppConfig {
   @Bean
   public Logger.Level logLevel() {
     return Logger.Level.BASIC;
+  }
+
+  /**
+   * Creates bean for RestTemplate.
+   *
+   * @return
+   */
+  @Bean
+  public RestTemplate restTemplate() {
+    return new RestTemplate();
   }
 
 }

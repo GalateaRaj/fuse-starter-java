@@ -1,0 +1,12 @@
+{
+  "TSLA Daily Stock Prices (1)": [{
+      "prices (USD)": {
+        "date": "2020-09-14",
+        "open": 380.95,
+        "high": 420,
+        "low": 373.3,
+        "close": 419.62
+      }
+    }
+  ]
+}

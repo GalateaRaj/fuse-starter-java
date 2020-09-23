@@ -1,0 +1,61 @@
+{
+  "INTC Daily Stock Prices (7)": [
+    {
+      "prices (USD)": {
+        "date": "2020-09-14",
+        "open": 48.85,
+        "high": 49.72,
+        "low": 48.85,
+        "close": 49.41
+      }
+    },{
+      "prices (USD)": {
+        "date": "2020-09-11",
+        "open": 49.2635,
+        "high": 50.05,
+        "low": 48.95,
+        "close": 49.28
+      }
+    },{
+      "prices (USD)": {
+        "date": "2020-09-10",
+        "open": 50,
+        "high": 50.09,
+        "low": 48.71,
+        "close": 48.96
+      }
+    },{
+      "prices (USD)": {
+        "date": "2020-09-09",
+        "open": 49.53,
+        "high": 49.9684,
+        "low": 49.04,
+        "close": 49.62
+      }
+    },{
+      "prices (USD)": {
+        "date": "2020-09-08",
+        "open": 49.26,
+        "high": 49.9,
+        "low": 48.85,
+        "close": 48.91
+      }
+    },{
+      "prices (USD)": {
+        "date": "2020-09-04",
+        "open": 50.53,
+        "high": 51.23,
+        "low": 49.49,
+        "close": 50.08
+      }
+    },{
+      "prices (USD)": {
+        "date": "2020-09-03",
+        "open": 52.5,
+        "high": 52.62,
+        "low": 50.135,
+        "close": 50.39
+      }
+    }
+  ]
+}

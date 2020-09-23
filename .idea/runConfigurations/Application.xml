@@ -1,22 +1,17 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
-    <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+    <option name="MAIN_CLASS_NAME" value="org.galatea.starter.Application" />
+    <module name="fuse-starter-java" />
+    <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=dev --server.port=8080" />
+    <option name="VM_PARAMETERS" value="-Dapplication.name=my-fuse-app -Dapplication.log-dir=logs -Dapplication.log-archive-root-dir=logs/archive" />
+    <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="org.galatea.starter.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
-    <option name="MAIN_CLASS_NAME" value="org.galatea.starter.Application" />
-    <option name="VM_PARAMETERS" value="-Dapplication.name=my-fuse-app -Dapplication.log-dir=logs -Dapplication.log-archive-root-dir=logs/archive" />
-    <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=dev --server.port=8080" />
-    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-    <option name="ALTERNATIVE_JRE_PATH" />
-    <option name="ENABLE_SWING_INSPECTOR" value="false" />
-    <option name="ENV_VARIABLES" />
-    <option name="PASS_PARENT_ENVS" value="true" />
-    <module name="fuse-starter-java" />
-    <envs />
-    <method />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
   </configuration>
 </component>
