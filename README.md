@@ -15,6 +15,39 @@ This readme will contain an index to features and their location in code.
 - Add JAVA_HOME to your path
   - Edit Path under User Variables and add a new entry for %JAVA_HOME%\bin
 
+### Git
+- Git is a [Version Control System](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) and it used with this project.
+- [Download Git](https://git-scm.com/downloads) and install it with the default options.
+- When the installation is finished open the newly installed "Git Bash" application and paste the following commands (with your name and work email):
+   > git config --global user.name "Firstname Lastname"
+   
+   > git config --global user.email "lastname@galatea-associates.com"
+##### Git Clone to Intellij
+1. Open Intellij IDEA
+2. You will be greeted with a welcome screen. Click "Check out from Version Control" and then "Git".
+    - If you don't see welcome screen, choose "File" -> "New" -> "Project from Version Control" -> "Git" from menu
+3. In your browser of choice go this [project's page](https://github.com/galatea-associates/fuse-starter-java)
+4. Towards the top of the page click the drop down with the text "Code".
+5. Copy the URL in the text box under "HTTPS"
+3. Back in Intellij paste the URL you copied into the "Git Repository URL" field.
+4. Click the "clone" button.
+
+This will create a new project in Intellij and download a copy of this project into it.
+
+##### Git Clone to Eclipse
+1. Open Eclipse.
+2. "File" -> "Import" -> "Git" -> "Projects from Git"
+3. Click "Next", select "Clone URI" and then click "Next" again.
+4. In your browser of choice go this [project's page](https://github.com/galatea-associates/fuse-starter-java)
+5. Towards the top of the page click the drop down with the text "Code"
+6. Copy the URL in the text box under "HTTPS"
+7. Back in Eclipse, past the URL you copied into the "URI" field.
+8. At the bottom of the window enter your gitlab username and password.
+9. Click "Next" three more times until you have the option to select "Import as General Project".
+10. Click "Finish"
+
+This will create a new project in Eclipse and download a copy of this project into it.
+
 ### Eclipse
 - Import as a maven project however you like. https://www.youtube.com/watch?v=BlkgrXb3L0c is one place to start if you're at a complete loss on this step.
 - Make sure Eclipse is set up to compile to Java 11
