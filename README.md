@@ -166,3 +166,25 @@ We have a Jenkins server hosted on AWS that handles the FUSE continuous integrat
 The build process is handled via a [Jenkins pipeline build](https://jenkins.io/doc/book/pipeline/), with the pipeline managed via the *Jenkins* file in the root of the project.  We recommend that all of your build steps are captured in the *Jeninks* file.  You should not define any build steps directly within the Jenkins server.
 
 We currently don't have a recommendation for how to handle this in TeamCity and would love someone who is familiar with TeamCity to recommend an equivalent model.
+
+## Application and Thread Monitoring
+In order to view the status of a running FUSE application you can use [VisualVM](https://visualvm.github.io/index.html). Downloads and installation instructions are available at <https://visualvm.github.io/download.html>.
+Basic Instructions
+* Download zip file from the location mentioned above and extract the contents.
+* In the unzipped files find and run `visualvm_206/bin/visualvm.exe`
+    - If the following error appears "Cannot find Java 1.8 or higher" you will need to specify the location of the jdk to use.
+    - example: `./visualvm.exe --jdkhome "C:/Program Files/Java/jdk-11"`
+* Once VisualVM is running, if FUSE is also running locally on the same machine, there should be an application with a name similar to the following "org.galatea.starter.Application (pid XXXXX)"
+    - If the fuse application does not automatically appear you can connect to it manually by going to File -> Add JMX Connection and entering the host and port of the Fuse instance's JMX server
+    - To find the JMX server port for your FUSE instance you can search through the log to find a line similar to the following `INFO  o.a.a.b.j.ManagementContext - JMX consoles can connect to service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi`
+
+Using VisualVM
+Once the application is opened in VisualVM there are several tabs filled with different information about the application
+* Overview - provides basic details about the application's process and the JVM running it.
+* Monitor - shows real time information about the application including CPU usage, memory usage, and number of running threads.
+* Threads - provides a list of all the currently running threads and has the ability to make a thread dump for any selected threads.
+    - If you want to be able to get realtime stack traces from any thread you can install the VisualVM Threads Inspector plugin
+    - To install go to Tools -> Plugins, then select the Available Plugins tab. Find "Threads Inspector" in the list of plugins and click install.
+* Sampler - Gives the option to see a more detailed view of CPU and memory usage by the app including a by thread breakdown
+* Profiler - Allows enabling CPU or memory profiling and viewing the results.
+
