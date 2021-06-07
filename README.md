@@ -68,14 +68,25 @@ This readme will contain an index to features and their location in code.
 - mvn verify will run the unit and integration tests
 
 ### Postman
+ - Postman is a popular API client that makes it easy for developers to create, share, test and document APIs. This is done by allowing users to create and save simple and complex HTTP/s requests, as well as read their responses.
  - You can import our Postman collection (src/postman/Fuse-Starter-Java.postman_collection.json) for sample REST calls that can be made to the application once it has been started.
+#### Installing
+ - Navigate to https://www.postman.com/downloads/ and click "Download the App"
+   - Note that you can also try the Web Version of postman, but you will have to make an account
+ - Run the Postman-Setup executable
 #### Create a new Environment
- - Click on the Cog in the top right
- - Click Add.
- - Make the Environment Name "Local"
- - Add a new key "host" with a value of "localhost:8080"
+ - On the tab on the left side, select Environments
+ - Click the "+" to create a new environment
+ - Set the environment name to "Local"
+ - Add a new variable "host" with a value of "localhost:8080"
  - Save the changes and select "Local" in the drop down menu on the top right
- 
+#### Running Sample REST Calls 
+ - Select Import in the top left corner
+ - Select Upload Files and upload fuse-starter-java/src/postman/Fuse-Starter-Java.postman_collection.json 
+ - You should now see a collection called Fuse-Starter-Java with 7 different Post, Get, and Put requests
+ - Run Fuse and send a request through Postman to test a response
+   - Note that if you're getting a NOT FOUND error, make sure that the {{host}} in the request is pointing to the Local environment you created.  Host should be written in all lowercase.
+
 ## Branching model
 We use this branching model in fuse-starter-java:  http://nvie.com/posts/a-successful-git-branching-model/
 
