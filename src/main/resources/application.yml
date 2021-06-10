@@ -13,8 +13,11 @@ spring:
       driver-class-name: org.h2.Driver
    jpa:
       hibernate:
-         ddl-auto: update
+         ddl-auto: validate
       database-platform: org.hibernate.dialect.MySQL5Dialect
+   flyway:
+     url: jdbc:h2:mem:testtest
+     locations: classpath:db/migration
 
 mvc:
    settleMissionPath: /settlementEngine

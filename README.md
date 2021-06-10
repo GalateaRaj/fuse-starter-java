@@ -122,6 +122,9 @@ FUSE currently shows how to read from a queue (not a topic).
 
 - **Spring Data** is a layer on top of a JPA provider that acts as an abstraction for JPA repositories to reduce boilerplate code. For example, Spring Data contains the `CrudRepository` interface which provides CRUD functionality, in very few lines of code, for an entity class being managed.
 
+## Flyway
+FUSE uses Flyway for database versioning. Spring Boot automatically autowires Flyway with its DataSource and invokes it on startup. Migration scripts are located in src/main/resources/db/migration and should follow the naming convention described here: <https://flywaydb.org/documentation/migrations#sql-based-migrations>.
+
 ## Logging
 - FUSE uses Log4j2 for logging. See the "Automatic Configuration" section of <https://logging.apache.org/log4j/2.x/manual/configuration.html> for how Log4j2 decides which log config file to use.
 - For the main configuration see: src/main/resources/log4j2.yml

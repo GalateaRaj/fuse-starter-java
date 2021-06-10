@@ -228,6 +228,13 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 
+		<!-- Flyway for database versioning -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>5.2.4</version>
+		</dependency>
+
 		<!-- Lombok for tostring, hashcode, etc -->
 		<!-- See: https://projectlombok.org/ -->
 		<!-- Eclipse plugin to recognizes the Lombok annotations: http://jnb.ociweb.com/jnb/jnbJan2010.html#installation -->
