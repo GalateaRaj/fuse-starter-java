@@ -32,7 +32,7 @@ public class IexService {
   }
 
   /**
-   * Get the last traded price for each Symbol that is passed in.
+   * Get the last traded price for each Symbol that is passed in.f
    *
    * @param symbols the list of symbols to get a last traded price for.
    * @return a list of last traded price objects for each Symbol that is passed in.

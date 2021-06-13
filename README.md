@@ -150,7 +150,7 @@ To run the FUSE unit tests:
 - **command line**: Run '$>mvn test'
 - **IntelliJ**: Run "Unit Tests" run configuration 
 
-Mocking is a good way to unit test (keeping in mind that your mock needs to be used in conjuction with a integration test).  FUSE has plenty of examples of how to use @MockBean.  See `org.galatea.starter.entrypoint.SettlementJmsListenerTest` and `org.galatea.starter.entrypoint.SettlementRestControllerTest` for some examples of how to mock.  Both of those tests mock out the settlement service using `given(...)` or `verify(...)` 
+Mocking is a good way to unit test (keeping in mind that your mock needs to be used in conjuction with an integration test).  FUSE has plenty of examples of how to use @MockBean.  See `org.galatea.starter.entrypoint.SettlementJmsListenerTest` and `org.galatea.starter.entrypoint.SettlementRestControllerTest` for some examples of how to mock.  Both of those tests mock out the settlement service using `given(...)` or `verify(...)` 
 
 For testing rest requests/responses see:
 - SettlementRestControllerTest
