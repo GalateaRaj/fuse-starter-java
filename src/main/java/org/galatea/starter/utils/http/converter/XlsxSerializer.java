@@ -49,6 +49,30 @@ public class XlsxSerializer {
     }
   }
 
+  /**
+   * Serialize the given objects to an XLSX spreadsheet.
+   *
+   * <p>Doesn't do any special handling of nested complex objects or collections in the given
+   * row objects - each field in the row object is basically toString()'ed and put in a cell.
+   *
+   * @param row the row data that the spreadsheet should hold
+   * @param clazz the class that is the type of the row data
+   * @param <T> the type of the row data
+   * @return the binary representation of the xlsx spreadsheet
+   */
+  public static <T> byte[] serializeToXlsx(final T row, final Class<T> clazz)
+      throws IOException {
+    // XSSF is used for xlsx-format spreadsheets, HSSF is used for xls-format
+    // SXSSF is the streaming version of XSSF, and is useful for working with large spreadsheets
+    try (Workbook wb = new XSSFWorkbook()) {
+      Sheet sheet = wb.createSheet(clazz.getSimpleName());
+      List<Field> fieldsToSerialize = getFieldsToSerialize(clazz);
+      populateHeaderRow(sheet, getHeaderValues(fieldsToSerialize));
+      populateSingleDataRow(sheet, fieldsToSerialize, row);
+      return writeSpreadsheetToBytes(wb);
+    }
+  }
+
   /*
    * Get a list of all fields in the given class, including inherited and private fields, but
    * excluding any @JsonIgnore'd fields.
@@ -135,6 +159,21 @@ public class XlsxSerializer {
         Object cellObject = FieldUtils.readField(fieldsToSerialize.get(col), row, true);
         dataCell.setCellValue(stringify(cellObject));
       }
+    }
+  }
+
+  /*
+   * Populate the rows of the given sheet using the given row data.
+   */
+  @SneakyThrows(IllegalAccessException.class)
+  private static <T> void populateSingleDataRow(final Sheet sheet,
+      final List<Field> fieldsToSerialize, final T row) {
+    int rowIndex = 1; // header is row 0
+    Row dataRow = sheet.createRow(rowIndex);
+    for (int col = 0; col < fieldsToSerialize.size(); col++) {
+      Cell dataCell = dataRow.createCell(col);
+      Object cellObject = FieldUtils.readField(fieldsToSerialize.get(col), row, true);
+      dataCell.setCellValue(stringify(cellObject));
     }
   }
 

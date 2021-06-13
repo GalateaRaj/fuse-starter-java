@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.galatea.starter.utils.FuseHttpTraceRepository;
+import org.galatea.starter.utils.http.converter.ApiErrorConverter;
 import org.galatea.starter.utils.http.converter.SettlementMissionCsvConverter;
 import org.galatea.starter.utils.http.converter.SettlementMissionXlsxConverter;
 import org.galatea.starter.utils.rest.FuseHttpTraceFilter;
@@ -88,8 +89,10 @@ public class MvcConfig implements WebMvcConfigurer {
     converters.add(new ProtobufHttpMessageConverter()); // Protobuf, XML & JSON supported
     converters.add(new MappingJackson2HttpMessageConverter()); // JSON
     converters.add(new Jaxb2RootElementHttpMessageConverter()); // XML
-    converters.add(new SettlementMissionCsvConverter());
-    converters.add(new SettlementMissionXlsxConverter());
+    converters.add(new SettlementMissionCsvConverter()); // SettlementMissionList -> CSV
+    converters.add(new SettlementMissionXlsxConverter()); // SettlementMissionList -> XLSX
+    // ApiError -> JSON when requested format is XML, CSV, or XLSX
+    converters.add(new ApiErrorConverter());
   }
 
 }

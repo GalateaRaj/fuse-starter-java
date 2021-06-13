@@ -1,10 +1,12 @@
 package org.galatea.starter.utils.http.converter;
 
 import java.io.IOException;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.Charsets;
 import org.galatea.starter.MvcConfig;
 import org.galatea.starter.domain.SettlementMission;
+import org.galatea.starter.entrypoint.ApiError;
 import org.galatea.starter.entrypoint.messagecontracts.SettlementMissionList;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
@@ -49,9 +51,10 @@ public class SettlementMissionCsvConverter
         "Reading CSV to SettlementMissionList is not supported");
   }
 
+  @SneakyThrows(IOException.class)
   @Override
   protected void writeInternal(final SettlementMissionList settlementMissionList,
-      final HttpOutputMessage outputMessage) throws IOException {
+      final HttpOutputMessage outputMessage) {
     log.info("Converting SettlementMissionList to CSV for HTTP response");
     outputMessage.getBody().write(CsvSerializer.serializeToCsv(
         settlementMissionList.getSettlementMissions(), SettlementMission.class)
